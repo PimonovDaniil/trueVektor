@@ -9,7 +9,7 @@ using namespace vectName;
 
 
 
-Vector sumVect(Vector a, Vector b) { // сложение (C = A + B);
+Vector sumVect(Vector &a, Vector &b) { // сложение (C = A + B);
     return(Vector(a.getX()+ b.getX(), a.getY() + b.getY(), a.getZ() + b.getZ()));
 }
 
@@ -68,6 +68,29 @@ int main()
     a.normirVector();
     a.printVector();
 
-    printf("\nII. C помощью внешних функций обеспечить двуместные операции над векторами A и B:");
-
+    printf("\nII. C помощью внешних функций обеспечить двуместные операции над векторами A и B:\n");
+    printf("есть вектор A: ");
+    Vector A(5, 0, 1);
+    A.printVector();
+    printf("есть вектор B: ");
+    Vector B(1, 2, 1);
+    B.printVector();
+    printf("a) с получением нового вектора C:\n");
+    printf("\t1) сложение (C = A + B);\n\t\tвектор С: ");
+    Vector C = sumVect(A, B);
+    C.printVector();
+    printf("\t2) вычитание (C = A – B);\n\t\tвектор С: ");
+    C = raznostVect(A, B);
+    C.printVector();
+    printf("\t3) векторное произведение (С = A * B);\n\t\tвектор С: ");
+    C = multiplyVect(A, B);
+    C.printVector();
+    printf("б) с получением скалярных величин:\n");
+    printf("\t1) скалярного произведения двух векторов;\n");
+    printf("\t\tскалярное произведение A и B: %lf:\n", scalarMultiply(A, B));
+    printf("\t2) косинуса и синуса угла между двумя векторами;\n");
+    printf("\t\tcos между A и B: %lf рад.\n", getCosVect(A, B));
+    printf("\t\tsin между A и B: %lf рад.\n", getSinVect(A, B));
+    printf("\t3) величины угла в градусах между векторами впределах[0, 180].\n");
+    printf("\t\tугол между A и B: %lf градусов", uglVectGrad(A, B));
 }
