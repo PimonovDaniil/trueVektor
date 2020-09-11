@@ -4,15 +4,18 @@
 #include <math.h>
 
 namespace vectName {
+
+    bool Vector::debug = false;
+
     Vector::Vector() {  //инициализация переменных
         this->x = 0; this->y = 0; this->z = 0;
-        //std::cout << "Конструктор 1\n";
+        if(debug) std::cout << "Конструктор 1\n";
     }
 
     /*конструктор, который задаёт координаты*/
     Vector::Vector(double x, double y, double z) {
         this->x = x; this->y = y; this->z = z;
-        //std::cout << "Конструктор 2\n";
+        if (debug) std::cout << "Конструктор 2\n";
     }
 
     /*конструктор копирования*/
@@ -20,12 +23,12 @@ namespace vectName {
     пемять выделена динамическая, потому что если полностью скопировать объект,
     то будет два объекта, которые ссылаются на одну и ту же память, а это плохо.*/
     Vector::Vector(const Vector& other) {   //это конечно позор, это надо убрать
-        //std::cout << "Конструктор копирования\n";
+        if (debug) std::cout << "Конструктор копирования\n";
         this->x = other.x; this->y = other.y; this->z = other.z;
     }
 
     Vector::~Vector() { //деструктор
-        //std::cout << "Деструктор\n";
+        if (debug) std::cout << "Деструктор\n";
     }
 
     double Vector::getX() { return(this->x); }    //геттеры
@@ -36,7 +39,7 @@ namespace vectName {
     void Vector::setY(double y) { this->y = y; }
     void Vector::setZ(double z) { this->z = z; }
 
-    double Vector::gedModul() { //возвращает модуль вектора 
+    double Vector::getModul() { //возвращает модуль вектора 
         return sqrt(pow(this->x, 2) + pow(this->y, 2) + pow(this->z, 2));
     }
 
@@ -51,7 +54,7 @@ namespace vectName {
     }
 
     Vector& Vector::normirVector() { //нормировка вектора
-        double modul = this->gedModul();
+        double modul = this->getModul();
         if (modul != 0) {
             this->x /= modul;
             this->y /= modul;

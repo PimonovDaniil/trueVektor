@@ -7,8 +7,6 @@
 #include "Vector.h"
 using namespace vectName;
 
-
-
 Vector sumVect(Vector &a, Vector &b) { // сложение (C = A + B);
     return(Vector(a.getX()+ b.getX(), a.getY() + b.getY(), a.getZ() + b.getZ()));
 }
@@ -30,21 +28,23 @@ double scalarMultiply(Vector &a, Vector &b) {// скалярное произв�
 }
 
 double getCosVect(Vector &a, Vector &b) {// нахождение косинуса угла между двумя векторами;
-    return(scalarMultiply(a, b) / (a.gedModul() * b.gedModul()));
+    return(scalarMultiply(a, b) / (a.getModul() * b.getModul()));
 }
 
 double getSinVect(Vector &a, Vector &b) {// нахождение синуса угла между двумя векторами;
     return(sqrt(1 - pow(getCosVect(a, b), 2)));
-    //return multiplyVect(a, b).gedModul() / b.gedModul() / a.gedModul();
+    //return multiplyVect(a, b).getModul() / b.getModul() / a.getModul();
 }
 
 
 double uglVectGrad(Vector &a, Vector &b) { //величины угла в градусах между векторами в пределах[0, 180º].
-    return atan2(multiplyVect(a, b).gedModul(), scalarMultiply(a, b)) * 180 / 3.14159265358979323846;
+    return atan2(multiplyVect(a, b).getModul(), scalarMultiply(a, b)) * 180 / 3.14159265358979323846;
 }
 
 int main()
 {
+    Vector::debug = false; //переменная позволяет включить отображение конструкторов/деструкторов
+
     setlocale(LC_CTYPE, "RUSSIAN");
     printf("I. С помощью функций-элементов класса обеспечить:\n");
     printf("\tесть вектор А: ");
@@ -56,7 +56,7 @@ int main()
     a.printVector();
     printf("\t\tсчитаем Z: %lf\n",a.getZ());
     printf("\t2) вычисление модуля вектора;\n");
-    printf("\t\tмодуль вектора А равен: %lf\n", a.gedModul());
+    printf("\t\tмодуль вектора А равен: %lf\n", a.getModul());
     printf("\t3) копирование вектора;\n\t\tкопируем вектор А в вектор B\n\t\tВектор B: ");
     Vector b(a);
     b.printVector();
@@ -94,3 +94,9 @@ int main()
     printf("\t3) величины угла в градусах между векторами впределах[0, 180].\n");
     printf("\t\tугол между A и B: %lf градусов", uglVectGrad(A, B));
 }
+
+/*Конструкторы могут вызываться автоматически например при передачу объекта
+в функцию типа void F(Vector a){}. В данном случае вызывается конструктор копирования.
+Деструктор вызывается при удалении объекта, например при его удалении в конце функции.*/
+
+/*Спасибо за просмотр. Подписывайтесь на канал:) https://github.com/PimonovDaniil/trueVektor */
