@@ -46,18 +46,28 @@ double uglVectGrad(Vector &a, Vector &b) { //величины угла в гра
 int main()
 {
     setlocale(LC_CTYPE, "RUSSIAN");
-    Vector a(1, 6, 0);
+    printf("I. С помощью функций-элементов класса обеспечить:\n");
+    printf("\tесть вектор А: ");
+    Vector a(1, 5, 2);
     a.printVector();
-    Vector b = a.normirVector();
+    printf("\t1) доступ к элементам вектора (чтение/запись);\n");
+    printf("\t\tзапишим 5 в X\n\t\t");
+    a.setX(5);
+    a.printVector();
+    printf("\t\tсчитаем Z: %lf\n",a.getZ());
+    printf("\t2) вычисление модуля вектора;\n");
+    printf("\t\tмодуль вектора А равен: %lf\n", a.gedModul());
+    printf("\t3) копирование вектора;\n\t\tкопируем вектор А в вектор B\n\t\tВектор B: ");
+    Vector b(a);
     b.printVector();
+    printf("\t4) умножение вектора на скаляр;\n");
+    printf("\t\tумножаем вектор А на 3: ");
+    a.multiplyScalar(3);
     a.printVector();
-    /*Vector b(1, 0, 0);
-    Vector c = raznostVect(a, b);
-    c.printVector();
+    printf("\t5) нормировку вектора (получение вектора единичной длины)\n\t\tнормированный вектор А: ");
+    a.normirVector();
     a.printVector();
-    b.printVector();
-    printf("угол между a и b %lf\n", uglVectGrad(a, b));
-    printf("угол между b и a %lf\n", uglVectGrad(b, a));
-    a.printVector();
-    b.printVector();*/
+
+    printf("\nII. C помощью внешних функций обеспечить двуместные операции над векторами A и B:");
+
 }
