@@ -39,19 +39,25 @@ double getSinVect(Vector &a, Vector &b) {// нахождение синуса у
 }
 
 
-double uglVectGrad(Vector &a, Vector &b) { //величины угла в градусах между векторами в пределах[–180º, 180º].
+double uglVectGrad(Vector &a, Vector &b) { //величины угла в градусах между векторами в пределах[0, 180º].
     return atan2(multiplyVect(a, b).gedModul(), scalarMultiply(a, b)) * 180 / 3.14159265358979323846;
 }
 
 int main()
 {
     setlocale(LC_CTYPE, "RUSSIAN");
-    Vector a(1, 1, 0);
-    Vector b(1, 0, 0);
+    Vector a(1, 6, 0);
+    a.printVector();
+    Vector b = a.normirVector();
+    b.printVector();
+    a.printVector();
+    /*Vector b(1, 0, 0);
+    Vector c = raznostVect(a, b);
+    c.printVector();
     a.printVector();
     b.printVector();
     printf("угол между a и b %lf\n", uglVectGrad(a, b));
     printf("угол между b и a %lf\n", uglVectGrad(b, a));
     a.printVector();
-    b.printVector();
+    b.printVector();*/
 }

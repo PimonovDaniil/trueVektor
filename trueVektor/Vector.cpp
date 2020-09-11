@@ -16,6 +16,9 @@ namespace vectName {
     }
 
     /*конструктор копирования*/
+    /*Вообще он нужен например если объект ссылается на какую-то память или 
+    пемять выделена динамическая, потому что если полностью скопировать объект,
+    то будет два объекта, которые ссылаются на одну и ту же память, а это плохо.*/
     Vector::Vector(const Vector& other) {   //это конечно позор, это надо убрать
         //std::cout << "Конструктор копирования\n";
         this->x = other.x; this->y = other.y; this->z = other.z;
@@ -37,7 +40,7 @@ namespace vectName {
         return sqrt(pow(this->x, 2) + pow(this->y, 2) + pow(this->z, 2));
     }
 
-    void Vector::printVector() {
+    void Vector::printVector() { //печать вектора на экран
         std::cout << "x = " << this->x << "; y = " << this->y << "; z = " << this->z << "\n";
     }
 
@@ -47,12 +50,13 @@ namespace vectName {
         this->z *= k;
     }
 
-    void Vector::normirVector() { //нормировка вектора
+    Vector& Vector::normirVector() { //нормировка вектора
         double modul = this->gedModul();
         if (modul != 0) {
             this->x /= modul;
             this->y /= modul;
             this->z /= modul;
         }
+        return *this;
     }
 }

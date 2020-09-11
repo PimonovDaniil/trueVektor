@@ -23,7 +23,7 @@ namespace vectName {
 		double gedModul();
 		void printVector();
 		void multiplyScalar(double k);
-		void normirVector();
+		Vector& normirVector();
 	};
 }
 
