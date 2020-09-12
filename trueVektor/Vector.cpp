@@ -13,7 +13,7 @@ namespace vectName {
     }
 
     /*конструктор, который задаЄт координаты*/
-    Vector::Vector(double x, double y, double z) {
+    Vector::Vector(const double x, const double y, const double z) {
         this->x = x; this->y = y; this->z = z;
         if (debug) std::cout << " онструктор 2\n";
     }
@@ -35,9 +35,9 @@ namespace vectName {
     double Vector::getY() { return(this->y); }
     double Vector::getZ() { return(this->z); }
 
-    void Vector::setX(double x) { this->x = x; }    //сеттеры
-    void Vector::setY(double y) { this->y = y; }
-    void Vector::setZ(double z) { this->z = z; }
+    void Vector::setX(const double x) { this->x = x; }    //сеттеры
+    void Vector::setY(const double y) { this->y = y; }
+    void Vector::setZ(const double z) { this->z = z; }
 
     double Vector::getModul() { //возвращает модуль вектора 
         return sqrt(pow(this->x, 2) + pow(this->y, 2) + pow(this->z, 2));
@@ -47,7 +47,7 @@ namespace vectName {
         std::cout << "x = " << this->x << "; y = " << this->y << "; z = " << this->z << "\n";
     }
 
-    void Vector::multiplyScalar(double k) { //умножение вектора на скал€р   
+    void Vector::multiplyScalar(const double k) { //умножение вектора на скал€р   
         this->x *= k;
         this->y *= k;
         this->z *= k;
