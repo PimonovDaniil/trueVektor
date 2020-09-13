@@ -3,7 +3,7 @@
 #include <locale.h>
 #include <math.h>
 
-namespace vectName {
+namespace mathTools {
 
     bool Vector::debug = false;
     int Vector::num = 0; //начальное кол-во объектов класса
@@ -47,15 +47,15 @@ namespace vectName {
 
     
 
-    double Vector::getX() { return(this->x); }    //геттеры
-    double Vector::getY() { return(this->y); }
-    double Vector::getZ() { return(this->z); }
+    double Vector::getX() const { return(this->x); }    //геттеры
+    double Vector::getY() const { return(this->y); }
+    double Vector::getZ() const { return(this->z); }
 
     void Vector::setX(const double x) { this->x = x; }    //сеттеры
     void Vector::setY(const double y) { this->y = y; }
     void Vector::setZ(const double z) { this->z = z; }
 
-    double Vector::getModul() { //возвращает модуль вектора 
+    double Vector::getModul() const { //возвращает модуль вектора 
         return sqrt(pow(this->x, 2) + pow(this->y, 2) + pow(this->z, 2));
     }
 
