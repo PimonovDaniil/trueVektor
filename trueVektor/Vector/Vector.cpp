@@ -68,15 +68,6 @@ namespace mathTools {
         this->z *= k;
     }
 
-    /*Vector& Vector::normirVector() { //нормировка вектора
-        double modul = this->getModul();
-        if (modul != 0) {
-            this->x /= modul;
-            this->y /= modul;
-            this->z /= modul;
-        }
-        return *this;
-    }*/
 
     void Vector::toUnit() { //нормировка вектора
         double modul = this->getModul();
@@ -90,7 +81,7 @@ namespace mathTools {
         }
     }
 
-    Vector Vector::getUnit() const {
+    Vector Vector::getUnit() const { //нормировка вектора(возврат значения)
         double modul = this->getModul();
         if (modul != 0) {
             Vector a(this->x / modul, this->y / modul, this->z / modul);

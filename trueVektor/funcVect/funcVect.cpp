@@ -1,8 +1,10 @@
-﻿#include <iostream>
+﻿#define _USE_MATH_DEFINES
+#include <iostream>
 #include <locale.h>
 #include <math.h>
 #include "funcVect.h"
 #include "../Vector/Vector.h"
+
 using namespace mathTools;
 
 Vector sumVect(const Vector& a, const Vector& b) { // сложение (C = A + B);
@@ -36,5 +38,5 @@ double getSinVect(const Vector& a, const Vector& b) {// нахождение с�
 
 
 double uglVectGrad(const Vector& a, const  Vector& b) { //величины угла в градусах между векторами в пределах[0, 180º].
-    return atan2(multiplyVect(a, b).getModul(), scalarMultiply(a, b)) * 180 / 3.14159265358979323846;
+    return atan2(multiplyVect(a, b).getModul(), scalarMultiply(a, b)) * 180 / M_PI;
 }
