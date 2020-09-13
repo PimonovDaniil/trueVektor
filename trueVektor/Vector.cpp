@@ -6,30 +6,46 @@
 namespace vectName {
 
     bool Vector::debug = false;
+    int Vector::num = 0; //начальное кол-во объектов класса
 
     Vector::Vector() {  //инициализация переменных
         this->x = 0; this->y = 0; this->z = 0;
-        if(debug) std::cout << "Конструктор 1\n";
+        this->num++;
+        this->numObj = this->num;
+        if(debug) std::cout << "(вектор " << this->numObj << ", конструктор 1)\n";
     }
 
     /*конструктор, который задаёт координаты*/
     Vector::Vector(const double x, const double y, const double z) {
         this->x = x; this->y = y; this->z = z;
-        if (debug) std::cout << "Конструктор 2\n";
+        this->num++;
+        this->numObj = this->num;
+        if (debug) std::cout << "(вектор " << this->numObj << ", конструктор 2)\n";
     }
 
     /*конструктор копирования*/
     /*Вообще он нужен например если объект ссылается на какую-то память или 
     пемять выделена динамическая, потому что если полностью скопировать объект,
     то будет два объекта, которые ссылаются на одну и ту же память, а это плохо.*/
-    Vector::Vector(const Vector& other) {   //это конечно позор, это надо убрать
-        if (debug) std::cout << "Конструктор копирования\n";
+    Vector::Vector(const Vector& other) {
+        this->num++;
+        this->numObj = this->num;
+        if (debug) std::cout << "(вектор " << this->numObj << ", конструктор копирования)\n";
         this->x = other.x; this->y = other.y; this->z = other.z;
     }
 
     Vector::~Vector() { //деструктор
-        if (debug) std::cout << "Деструктор\n";
+        if (debug) std::cout << "(вектор " << this->numObj << ", деструктор)\n";
     }
+
+    /*подмена понятий (перегрузка)*/
+    Vector& Vector::operator=(Vector other)
+    {
+        this->x = other.getX(); this->y = other.getY(); this->z = other.getZ();
+        return *this; //чтобы был корректный синтаксис a=b=c;
+    }
+
+    
 
     double Vector::getX() { return(this->x); }    //геттеры
     double Vector::getY() { return(this->y); }

@@ -43,9 +43,15 @@ double uglVectGrad(Vector &a, Vector &b) { //величины угла в гра
 
 int main()
 {
-    Vector::debug = false; //переменная позволяет включить отображение конструкторов/деструкторов
-
     setlocale(LC_CTYPE, "RUSSIAN");
+    Vector::debug = true; //переменная позволяет включить отображение конструкторов/деструкторов
+
+    Vector v1, v2, v3;
+    v3 = sumVect(v1, v2);
+
+
+    /*Vector::debug = false; //переменная позволяет включить отображение конструкторов/деструкторов
+
     printf("I. С помощью функций-элементов класса обеспечить:\n");
     printf("\tесть вектор А: ");
     Vector a(1, 5, 2);
@@ -92,7 +98,7 @@ int main()
     printf("\t\tcos между A и B: %lf рад.\n", getCosVect(A, B));
     printf("\t\tsin между A и B: %lf рад.\n", getSinVect(A, B));
     printf("\t3) величины угла в градусах между векторами впределах[0, 180].\n");
-    printf("\t\tугол между A и B: %lf градусов", uglVectGrad(A, B));
+    printf("\t\tугол между A и B: %lf градусов", uglVectGrad(A, B));*/
 }
 
 /*Конструкторы могут вызываться автоматически например при передачу объекта

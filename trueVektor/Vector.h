@@ -5,14 +5,18 @@ namespace vectName {
 	{
 	private:
 		double x, y, z; //координаты вектора 
+		static int num; //счётчик объектов класса
+		int numObj; //номер привязанный к объекту
 
 	public:
 		static bool debug;
 
 		Vector();
 		Vector(double x, double y, double z);
-		Vector(const Vector& other); //это конечно позор, это надо убрать
+		Vector(const Vector& other); 
 		~Vector();
+
+		Vector& operator = (Vector other);
 
 		double getX(); //геттеры
 		double getY();
