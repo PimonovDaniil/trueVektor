@@ -39,10 +39,9 @@ namespace mathTools {
     }
 
     /*подмена пон€тий (перегрузка)*/
-    Vector& Vector::operator=(Vector other)
+    void Vector::operator=(Vector other)
     {
         this->x = other.getX(); this->y = other.getY(); this->z = other.getZ();
-        return *this; //чтобы был корректный синтаксис a=b=c;
     }
 
     
@@ -69,7 +68,7 @@ namespace mathTools {
         this->z *= k;
     }
 
-    Vector& Vector::normirVector() { //нормировка вектора
+    /*Vector& Vector::normirVector() { //нормировка вектора
         double modul = this->getModul();
         if (modul != 0) {
             this->x /= modul;
@@ -77,5 +76,29 @@ namespace mathTools {
             this->z /= modul;
         }
         return *this;
+    }*/
+
+    void Vector::toUnit() { //нормировка вектора
+        double modul = this->getModul();
+        if (modul != 0) {
+            this->x /= modul;
+            this->y /= modul;
+            this->z /= modul;
+        }
+        else {
+            throw "ћодуль вектора равен 0. (деление на 0)";
+        }
+    }
+
+    Vector Vector::getUnit() const {
+        double modul = this->getModul();
+        if (modul != 0) {
+            Vector a(this->x / modul, this->y / modul, this->z / modul);
+            return a;
+        }
+        else {
+            throw "ћодуль вектора равен 0. (деление на 0)";
+        }
+        
     }
 }

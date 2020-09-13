@@ -11,13 +11,16 @@ using namespace mathTools;
 int main()
 {
     setlocale(LC_CTYPE, "RUSSIAN");
+    Vector::debug = true;
+    Vector a(1, 1, 1);
+    a.toUnit();
     /*Vector::debug = true; //переменная позволяет включить отображение конструкторов/деструкторов
 
     Vector v1, v2, v3;
     v3 = v2 = v1;*/
+    
 
-
-    Vector::debug = false; //переменная позволяет включить отображение конструкторов/деструкторов
+   /* Vector::debug = false; //переменная позволяет включить отображение конструкторов/деструкторов
 
     printf("I. С помощью функций-элементов класса обеспечить:\n");
     printf("\tесть вектор А: ");
@@ -38,7 +41,7 @@ int main()
     a.multiplyScalar(3);
     a.printVector();
     printf("\t5) нормировку вектора (получение вектора единичной длины)\n\t\tнормированный вектор А: ");
-    a.normirVector();
+    a.toUnit();
     a.printVector();
 
     printf("\nII. C помощью внешних функций обеспечить двуместные операции над векторами A и B:\n");
@@ -65,7 +68,7 @@ int main()
     printf("\t\tcos между A и B: %lf рад.\n", getCosVect(A, B));
     printf("\t\tsin между A и B: %lf рад.\n", getSinVect(A, B));
     printf("\t3) величины угла в градусах между векторами впределах[0, 180].\n");
-    printf("\t\tугол между A и B: %lf градусов", uglVectGrad(A, B));
+    printf("\t\tугол между A и B: %lf градусов", uglVectGrad(A, B));*/
 }
 
 /*Конструкторы могут вызываться автоматически например при передачу объекта

@@ -16,7 +16,7 @@ namespace mathTools {
 		Vector(const Vector& other); 
 		~Vector();
 
-		Vector& operator = (Vector other);
+		void operator = (Vector other);
 
 		double getX() const; //геттеры
 		double getY() const;
@@ -29,7 +29,10 @@ namespace mathTools {
 		double getModul() const;
 		void printVector();
 		void multiplyScalar(double k);
-		Vector& normirVector();
+		
+		void toUnit();
+		Vector getUnit() const;
+
 	};
 }
 
