@@ -141,12 +141,12 @@
   <ItemGroup>
     <ClCompile Include="funcVect\funcVect.cpp" />
     <ClCompile Include="trueVektor.cpp" />
-    <ClCompile Include="Vector.cpp" />
+    <ClCompile Include="Vector\Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="funcVect\funcVect.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Vector.h" />
+    <ClInclude Include="Vector\Vector.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="trueVektor.rc" />
