@@ -29,10 +29,10 @@ namespace mathTools {
 		double getModul() const;
 		void printVector();
 		void multiplyScalar(double k);
+		void copyFrom(const Vector& v);
 		
 		void toUnit();
 		Vector getUnit() const;
-
 	};
 }
 

@@ -68,6 +68,10 @@ namespace mathTools {
         this->z *= k;
     }
 
+    void Vector::copyFrom(const Vector& v) //копирования данных из другого вектора
+    {
+        this->x = v.getX(); this->y = v.getY(); this->z = v.getZ();
+    }
 
     void Vector::toUnit() { //нормировка вектора
         double modul = this->getModul();
@@ -90,6 +94,5 @@ namespace mathTools {
         else {
             throw "Модуль вектора равен 0. (деление на 0)";
         }
-        
     }
 }
