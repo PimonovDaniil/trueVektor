@@ -27,7 +27,7 @@ namespace mathTools {
 		void setZ(double z);
 
 		double getModul() const;
-		void printVector();
+		void print() const;
 		void multiplyScalar(double k);
 		void copyFrom(const Vector& v);
 		

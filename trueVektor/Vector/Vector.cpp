@@ -59,7 +59,7 @@ namespace mathTools {
         return sqrt(pow(this->x, 2) + pow(this->y, 2) + pow(this->z, 2));
     }
 
-    void Vector::printVector() { //печать вектора на экран
+    void Vector::print() const{ //печать вектора на экран
         std::cout << "x = " << this->x << "; y = " << this->y << "; z = " << this->z << "\n";
     }
 
