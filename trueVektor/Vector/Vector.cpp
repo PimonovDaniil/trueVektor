@@ -42,7 +42,7 @@ namespace mathTools {
     /*подмена понятий (перегрузка)*/
     void Vector::operator=(Vector other)
     {
-        this->x = other.getX(); this->y = other.getY(); this->z = other.getZ();
+        this->x = other.x; this->y = other.y; this->z = other.z;
     }
 
     
