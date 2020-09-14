@@ -4,7 +4,6 @@
 #include <iostream>
 #include <locale.h>
 #include <math.h>
-#include "funcVect/funcVect.h"
 #include "Vector/Vector.h"
 using namespace mathTools;
 

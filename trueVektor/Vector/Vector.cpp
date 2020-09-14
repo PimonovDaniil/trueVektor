@@ -1,3 +1,4 @@
+п»ї#define _USE_MATH_DEFINES
 #include "Vector.h"
 #include <iostream>
 #include <locale.h>
@@ -6,39 +7,39 @@
 namespace mathTools {
 
     bool Vector::debug = false;
-    int Vector::num = 0; //начальное кол-во объектов класса
+    int Vector::num = 0; //РЅР°С‡Р°Р»СЊРЅРѕРµ РєРѕР»-РІРѕ РѕР±СЉРµРєС‚РѕРІ РєР»Р°СЃСЃР°
 
-    Vector::Vector() {  //инициализация переменных
+    Vector::Vector() {  //РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїРµСЂРµРјРµРЅРЅС‹С…
         this->x = 0; this->y = 0; this->z = 0;
         this->num++;
         this->numObj = this->num;
-        if(debug) std::cout << "(вектор " << this->numObj << ", конструктор 1)\n";
+        if(debug) std::cout << "(РІРµРєС‚РѕСЂ " << this->numObj << ", РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ 1)\n";
     }
 
-    /*конструктор, который задаёт координаты*/
+    /*РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ, РєРѕС‚РѕСЂС‹Р№ Р·Р°РґР°С‘С‚ РєРѕРѕСЂРґРёРЅР°С‚С‹*/
     Vector::Vector(const double x, const double y, const double z) {
         this->x = x; this->y = y; this->z = z;
         this->num++;
         this->numObj = this->num;
-        if (debug) std::cout << "(вектор " << this->numObj << ", конструктор 2)\n";
+        if (debug) std::cout << "(РІРµРєС‚РѕСЂ " << this->numObj << ", РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ 2)\n";
     }
 
-    /*конструктор копирования*/
-    /*Вообще он нужен например если объект ссылается на какую-то память или 
-    пемять выделена динамическая, потому что если полностью скопировать объект,
-    то будет два объекта, которые ссылаются на одну и ту же память, а это плохо.*/
+    /*РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ*/
+    /*Р’РѕРѕР±С‰Рµ РѕРЅ РЅСѓР¶РµРЅ РЅР°РїСЂРёРјРµСЂ РµСЃР»Рё РѕР±СЉРµРєС‚ СЃСЃС‹Р»Р°РµС‚СЃСЏ РЅР° РєР°РєСѓСЋ-С‚Рѕ РїР°РјСЏС‚СЊ РёР»Рё 
+    РїРµРјСЏС‚СЊ РІС‹РґРµР»РµРЅР° РґРёРЅР°РјРёС‡РµСЃРєР°СЏ, РїРѕС‚РѕРјСѓ С‡С‚Рѕ РµСЃР»Рё РїРѕР»РЅРѕСЃС‚СЊСЋ СЃРєРѕРїРёСЂРѕРІР°С‚СЊ РѕР±СЉРµРєС‚,
+    С‚Рѕ Р±СѓРґРµС‚ РґРІР° РѕР±СЉРµРєС‚Р°, РєРѕС‚РѕСЂС‹Рµ СЃСЃС‹Р»Р°СЋС‚СЃСЏ РЅР° РѕРґРЅСѓ Рё С‚Сѓ Р¶Рµ РїР°РјСЏС‚СЊ, Р° СЌС‚Рѕ РїР»РѕС…Рѕ.*/
     Vector::Vector(const Vector& other) {
         this->num++;
         this->numObj = this->num;
-        if (debug) std::cout << "(вектор " << this->numObj << ", конструктор копирования)\n";
+        if (debug) std::cout << "(РІРµРєС‚РѕСЂ " << this->numObj << ", РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ)\n";
         this->x = other.x; this->y = other.y; this->z = other.z;
     }
 
-    Vector::~Vector() { //деструктор
-        if (debug) std::cout << "(вектор " << this->numObj << ", деструктор)\n";
+    Vector::~Vector() { //РґРµСЃС‚СЂСѓРєС‚РѕСЂ
+        if (debug) std::cout << "(РІРµРєС‚РѕСЂ " << this->numObj << ", РґРµСЃС‚СЂСѓРєС‚РѕСЂ)\n";
     }
 
-    /*подмена понятий (перегрузка)*/
+    /*РїРѕРґРјРµРЅР° РїРѕРЅСЏС‚РёР№ (РїРµСЂРµРіСЂСѓР·РєР°)*/
     void Vector::operator=(Vector other)
     {
         this->x = other.getX(); this->y = other.getY(); this->z = other.getZ();
@@ -46,34 +47,34 @@ namespace mathTools {
 
     
 
-    double Vector::getX() const { return(this->x); }    //геттеры
+    double Vector::getX() const { return(this->x); }    //РіРµС‚С‚РµСЂС‹
     double Vector::getY() const { return(this->y); }
     double Vector::getZ() const { return(this->z); }
 
-    void Vector::setX(const double x) { this->x = x; }    //сеттеры
+    void Vector::setX(const double x) { this->x = x; }    //СЃРµС‚С‚РµСЂС‹
     void Vector::setY(const double y) { this->y = y; }
     void Vector::setZ(const double z) { this->z = z; }
 
-    double Vector::getModul() const { //возвращает модуль вектора 
+    double Vector::getModul() const { //РІРѕР·РІСЂР°С‰Р°РµС‚ РјРѕРґСѓР»СЊ РІРµРєС‚РѕСЂР° 
         return sqrt(pow(this->x, 2) + pow(this->y, 2) + pow(this->z, 2));
     }
 
-    void Vector::printVector() { //печать вектора на экран
+    void Vector::printVector() { //РїРµС‡Р°С‚СЊ РІРµРєС‚РѕСЂР° РЅР° СЌРєСЂР°РЅ
         std::cout << "x = " << this->x << "; y = " << this->y << "; z = " << this->z << "\n";
     }
 
-    void Vector::multiplyScalar(const double k) { //умножение вектора на скаляр   
+    void Vector::multiplyScalar(const double k) { //СѓРјРЅРѕР¶РµРЅРёРµ РІРµРєС‚РѕСЂР° РЅР° СЃРєР°Р»СЏСЂ   
         this->x *= k;
         this->y *= k;
         this->z *= k;
     }
 
-    void Vector::copyFrom(const Vector& v) //копирования данных из другого вектора
+    void Vector::copyFrom(const Vector& v) //РєРѕРїРёСЂРѕРІР°РЅРёСЏ РґР°РЅРЅС‹С… РёР· РґСЂСѓРіРѕРіРѕ РІРµРєС‚РѕСЂР°
     {
         this->x = v.getX(); this->y = v.getY(); this->z = v.getZ();
     }
 
-    void Vector::toUnit() { //нормировка вектора
+    void Vector::toUnit() { //РЅРѕСЂРјРёСЂРѕРІРєР° РІРµРєС‚РѕСЂР°
         double modul = this->getModul();
         if (modul != 0) {
             this->x /= modul;
@@ -81,18 +82,50 @@ namespace mathTools {
             this->z /= modul;
         }
         else {
-            throw "Модуль вектора равен 0. (деление на 0)";
+            throw "РњРѕРґСѓР»СЊ РІРµРєС‚РѕСЂР° СЂР°РІРµРЅ 0. (РґРµР»РµРЅРёРµ РЅР° 0)";
         }
     }
 
-    Vector Vector::getUnit() const { //нормировка вектора(возврат значения)
+    Vector Vector::getUnit() const { //РЅРѕСЂРјРёСЂРѕРІРєР° РІРµРєС‚РѕСЂР°(РІРѕР·РІСЂР°С‚ Р·РЅР°С‡РµРЅРёСЏ)
         double modul = this->getModul();
         if (modul != 0) {
             Vector a(this->x / modul, this->y / modul, this->z / modul);
             return a;
         }
         else {
-            throw "Модуль вектора равен 0. (деление на 0)";
+            throw "РњРѕРґСѓР»СЊ РІРµРєС‚РѕСЂР° СЂР°РІРµРЅ 0. (РґРµР»РµРЅРёРµ РЅР° 0)";
         }
     }
+}
+
+Vector sumVect(const Vector& a, const Vector& b) { // СЃР»РѕР¶РµРЅРёРµ (C = A + B);
+    return(Vector(a.getX() + b.getX(), a.getY() + b.getY(), a.getZ() + b.getZ()));
+}
+
+Vector raznostVect(const Vector& a, const Vector& b) { // РІС‹С‡РёС‚Р°РЅРёРµ (C = A вЂ“ B);
+    return(Vector(a.getX() - b.getX(), a.getY() - b.getY(), a.getZ() - b.getZ()));
+}
+
+Vector multiplyVect(const Vector& a, const Vector& b) { // РІРµРєС‚РѕСЂРЅРѕРµ РїСЂРѕРёР·РІРµРґРµРЅРёРµ (РЎ = A * B);
+    Vector c;
+    c.setX((a.getY() * b.getZ()) - (a.getZ() * b.getY()));
+    c.setY((a.getZ() * b.getX()) - (a.getX() * b.getZ()));
+    c.setZ((a.getX() * b.getY()) - (a.getY() * b.getX()));
+    return(c);
+}
+
+double scalarMultiply(const Vector& a, const Vector& b) {// СЃРєР°Р»СЏСЂРЅРѕРµ РїСЂРѕРёР·РІРµРґРµРЅРёРµ РґРІСѓС… РІРµРєС‚РѕСЂРѕРІ
+    return(a.getX() * b.getX() + a.getY() * b.getY() + a.getZ() * b.getZ());
+}
+
+double getCosVect(const Vector& a, const Vector& b) {// РЅР°С…РѕР¶РґРµРЅРёРµ РєРѕСЃРёРЅСѓСЃР° СѓРіР»Р° РјРµР¶РґСѓ РґРІСѓРјСЏ РІРµРєС‚РѕСЂР°РјРё;
+    return(scalarMultiply(a, b) / (a.getModul() * b.getModul()));
+}
+
+double getSinVect(const Vector& a, const Vector& b) {// РЅР°С…РѕР¶РґРµРЅРёРµ СЃРёРЅСѓСЃР° СѓРіР»Р° РјРµР¶РґСѓ РґРІСѓРјСЏ РІРµРєС‚РѕСЂР°РјРё;
+    return multiplyVect(a, b).getModul() / b.getModul() / a.getModul();
+}
+
+double uglVectGrad(const Vector& a, const  Vector& b) { //РІРµР»РёС‡РёРЅС‹ СѓРіР»Р° РІ РіСЂР°РґСѓСЃР°С… РјРµР¶РґСѓ РІРµРєС‚РѕСЂР°РјРё РІ РїСЂРµРґРµР»Р°С…[0, 180Вє].
+    return atan2(multiplyVect(a, b).getModul(), scalarMultiply(a, b)) * 180 / M_PI;
 }
