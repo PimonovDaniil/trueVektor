@@ -39,19 +39,19 @@ namespace mathTools {
 
 using namespace mathTools;
 
-Vector sumVect(const Vector& a, const Vector& b); // сложение (C = A + B);
+Vector sum(const Vector& a, const Vector& b); // сложение (C = A + B);
 
-Vector raznostVect(const Vector& a, const Vector& b); // вычитание (C = A – B);
+Vector difference(const Vector& a, const Vector& b); // вычитание (C = A – B);
 
-Vector multiplyVect(const Vector& a, const Vector& b);  // векторное произведение (С = A * B);
+Vector vectMultiply(const Vector& a, const Vector& b);  // векторное произведение (С = A * B);
 
 double scalarMultiply(const Vector& a, const Vector& b);// скалярное произведение двух векторов
 
-double getCosVect(const Vector& a, const Vector& b); // нахождение косинуса угла между двумя векторами;
+double getCos(const Vector& a, const Vector& b); // нахождение косинуса угла между двумя векторами;
 
-double getSinVect(const Vector& a, const Vector& b); // нахождение синуса угла между двумя векторами;
+double getSin(const Vector& a, const Vector& b); // нахождение синуса угла между двумя векторами;
 
-double uglVectGrad(const Vector& a, const  Vector& b); //величины угла в градусах между векторами в пределах[0, 180º].
+double AngleBetween(const Vector& a, const  Vector& b); //величины угла в градусах между векторами в пределах[0, 180º].
 
 
 

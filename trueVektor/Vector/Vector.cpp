@@ -17,7 +17,7 @@ namespace mathTools {
     }
 
     /*конструктор, который задаёт координаты*/
-    Vector::Vector(const double x, const double y, const double z) {
+    Vector::Vector(double x, double y, double z) {
         this->x = x; this->y = y; this->z = z;
         this->num++;
         this->numObj = this->num;
@@ -51,9 +51,9 @@ namespace mathTools {
     double Vector::getY() const { return(this->y); }
     double Vector::getZ() const { return(this->z); }
 
-    void Vector::setX(const double x) { this->x = x; }    //сеттеры
-    void Vector::setY(const double y) { this->y = y; }
-    void Vector::setZ(const double z) { this->z = z; }
+    void Vector::setX(double x) { this->x = x; }    //сеттеры
+    void Vector::setY(double y) { this->y = y; }
+    void Vector::setZ(double z) { this->z = z; }
 
     double Vector::getModul() const { //возвращает модуль вектора 
         return sqrt(pow(this->x, 2) + pow(this->y, 2) + pow(this->z, 2));
@@ -63,7 +63,7 @@ namespace mathTools {
         std::cout << "x = " << this->x << "; y = " << this->y << "; z = " << this->z << "\n";
     }
 
-    void Vector::multiplyScalar(const double k) { //умножение вектора на скаляр   
+    void Vector::multiplyScalar(double k) { //умножение вектора на скаляр   
         this->x *= k;
         this->y *= k;
         this->z *= k;
@@ -98,15 +98,15 @@ namespace mathTools {
     }
 }
 
-Vector sumVect(const Vector& a, const Vector& b) { // сложение (C = A + B);
+Vector sum(const Vector& a, const Vector& b) { // сложение (C = A + B);
     return(Vector(a.getX() + b.getX(), a.getY() + b.getY(), a.getZ() + b.getZ()));
 }
 
-Vector raznostVect(const Vector& a, const Vector& b) { // вычитание (C = A – B);
+Vector difference(const Vector& a, const Vector& b) { // вычитание (C = A – B);
     return(Vector(a.getX() - b.getX(), a.getY() - b.getY(), a.getZ() - b.getZ()));
 }
 
-Vector multiplyVect(const Vector& a, const Vector& b) { // векторное произведение (С = A * B);
+Vector vectMultiply(const Vector& a, const Vector& b) { // векторное произведение (С = A * B);
     Vector c;
     c.setX((a.getY() * b.getZ()) - (a.getZ() * b.getY()));
     c.setY((a.getZ() * b.getX()) - (a.getX() * b.getZ()));
@@ -118,14 +118,14 @@ double scalarMultiply(const Vector& a, const Vector& b) {// скалярное �
     return(a.getX() * b.getX() + a.getY() * b.getY() + a.getZ() * b.getZ());
 }
 
-double getCosVect(const Vector& a, const Vector& b) {// нахождение косинуса угла между двумя векторами;
+double getCos(const Vector& a, const Vector& b) {// нахождение косинуса угла между двумя векторами;
     return(scalarMultiply(a, b) / (a.getModul() * b.getModul()));
 }
 
-double getSinVect(const Vector& a, const Vector& b) {// нахождение синуса угла между двумя векторами;
-    return multiplyVect(a, b).getModul() / b.getModul() / a.getModul();
+double getSin(const Vector& a, const Vector& b) {// нахождение синуса угла между двумя векторами;
+    return vectMultiply(a, b).getModul() / b.getModul() / a.getModul();
 }
 
-double uglVectGrad(const Vector& a, const  Vector& b) { //величины угла в градусах между векторами в пределах[0, 180º].
-    return atan2(multiplyVect(a, b).getModul(), scalarMultiply(a, b)) * 180 / M_PI;
+double AngleBetween(const Vector& a, const  Vector& b) { //величины угла в градусах между векторами в пределах[0, 180º].
+    return atan2(vectMultiply(a, b).getModul(), scalarMultiply(a, b)) * 180 / M_PI;
 }
