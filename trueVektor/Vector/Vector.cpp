@@ -74,18 +74,6 @@ namespace mathTools {
         this->x = v.getX(); this->y = v.getY(); this->z = v.getZ();
     }
 
-    void Vector::toUnit() { //нормировка вектора
-        double modul = this->getModul();
-        if (modul != 0) {
-            this->x /= modul;
-            this->y /= modul;
-            this->z /= modul;
-        }
-        else {
-            throw "Модуль вектора равен 0. (деление на 0)";
-        }
-    }
-
     Vector Vector::getUnit() const { //нормировка вектора(возврат значения)
         double modul = this->getModul();
         if (modul != 0) {
@@ -95,6 +83,10 @@ namespace mathTools {
         else {
             throw "Модуль вектора равен 0. (деление на 0)";
         }
+    }
+
+    void Vector::toUnit() { //нормировка вектора
+        this->copyFrom(this->getUnit());
     }
 }
 
